@@ -448,15 +448,18 @@ document.addEventListener("DOMContentLoaded", function() {
     sendBtn.addEventListener("click", function() {
         sendMessage(userInput.value);
     });
-	navigator.mediaDevices.getUserMedia({ audio: true })
-    .then(function(stream) {
-        // Microphone access granted, you can start recognition here
-        recognition.start();
-    })
-    .catch(function(error) {
-        // Handle error, e.g., show a message to the user
-        console.error('Error accessing microphone:', error);
-    });
+	document.getElementById("startBtn").addEventListener("click", function() {
+	    navigator.mediaDevices.getUserMedia({ audio: true })
+	        .then(function(stream) {
+	            // Microphone access granted, you can start recognition here
+	            recognition.start();
+	        })
+	        .catch(function(error) {
+	            // Handle error, e.g., show a message to the user
+	            console.error('Error accessing microphone:', error);
+	        });
+	});
+
 
 });
 
